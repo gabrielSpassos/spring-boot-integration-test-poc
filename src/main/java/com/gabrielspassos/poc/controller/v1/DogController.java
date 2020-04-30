@@ -11,19 +11,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.stream.Stream;
 
 @RestController
-@RequestMapping(value = "/dogs")
 public class DogController implements BaseVersion {
 
     @Autowired
     private DogService dogService;
 
-    @PostMapping
+    @PostMapping(value = "/dogs")
     public ResponseEntity<DogResponse> createDog(@RequestBody DogRequest dogRequest) {
         return Stream.of(dogService.createDog(dogRequest))
                 .map(DogResponseBuilder::build)
@@ -32,7 +30,7 @@ public class DogController implements BaseVersion {
                 .get();
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/dogs/{id}")
     public ResponseEntity<DogResponse> getDogById(@PathVariable Long id) {
         return Stream.of(dogService.getDogById(id))
                 .map(DogResponseBuilder::build)
@@ -41,7 +39,7 @@ public class DogController implements BaseVersion {
                 .get();
     }
 
-    @PutMapping(value = "/{id}")
+    @PutMapping(value = "/dogs/{id}")
     public ResponseEntity<DogResponse> updateDogById(@PathVariable Long id, @RequestBody DogRequest dogRequest) {
         return Stream.of(dogService.updateDogById(id, dogRequest))
                 .map(DogResponseBuilder::build)
