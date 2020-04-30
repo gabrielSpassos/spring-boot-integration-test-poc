@@ -15,7 +15,7 @@ import javax.persistence.Id;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "CUSTOMER")
+@Entity(name = "DOG")
 public class DogEntity {
 
     @Id
