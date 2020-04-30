@@ -2,7 +2,9 @@
 
 Create simple CRUD endpoints to cover integration tests. 
 
-:warning: This type of test usually should be run beside of project, because will change data at database. Run only at dev environment :warning:
+:warning: This type of test usually should be run beside of project, because will change data at database. 
+
+Run only at dev environment :warning:
 
 ### Swagger UI
 [Swagger](http://localhost:8080/swagger-ui.html)
